@@ -15,7 +15,8 @@ test('Locators', async ({page}) => {
 
 test('should verify 9 products on homepage', async ({page}) => {
     await page.goto('https://demoblaze.com/');
-    const products = await page.$$('#tbodyid h4 a'); // css locator
+    // const products = await page.$$('#tbodyid h4 a'); // css locator
+    const products = await page.$$('//div[@id="tbodyid"]//h4/a'); // xpath locator
     for(const product of products){
         const productName = await product.textContent();
         console.log(productName);
