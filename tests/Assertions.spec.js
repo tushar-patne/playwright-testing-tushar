@@ -34,5 +34,5 @@ test('should validate register form', async ({page}) => {
     await expect(DateOfBirthYearSelect.locator('option')).toHaveCount(112);
 
     await expect(emailInput).toBeEditable();
-
+    await page.waitForTimeout(5000); // similar to implicit wait in selenium, it should be avoided in production and should be only used to debugging
 })
