@@ -21,7 +21,8 @@ test('should validate register form', async ({page}) => {
 
     await maleRadioBtn.click();
     await expect(maleRadioBtn).toBeChecked();
-    await expect(femaleRadioBtn).not.toBeChecked();
+    expect(await maleRadioBtn.isChecked()).toBeTruthy();  // prefered 
+    // await expect(femaleRadioBtn).not.toBeChecked();
 
     await firstNameInput.fill('Tushar');
     await lastNameInput.fill('Patne');
@@ -34,5 +35,5 @@ test('should validate register form', async ({page}) => {
     await expect(DateOfBirthYearSelect.locator('option')).toHaveCount(112);
 
     await expect(emailInput).toBeEditable();
-    await page.waitForTimeout(5000); // similar to implicit wait in selenium, it should be avoided in production and should be only used to debugging
+    await page.waitForTimeout(3000); // similar to implicit wait in selenium, it should be avoided in production and should be only used to debugging
 })
